@@ -35,7 +35,7 @@ jobs:
       name: 'Authenticate to GCP'
       uses: 'google-github-actions/auth@v1'
       with:
-        workload_identity_provider: 'principalSet://iam.googleapis.com/projects/299668006770/locations/global/workloadIdentityPools/github-actions'
+        workload_identity_provider: 'projects/299668006770/locations/global/workloadIdentityPools/github-actions/providers/github-actions'
         service_account: 'gha-sa@tranquil-racer-388319.iam.gserviceaccount.com'
     - name: 'setup CloudSDK'
       uses: 'google-github-actions/setup-gcloud@v1'
