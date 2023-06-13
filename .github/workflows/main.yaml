@@ -42,4 +42,6 @@ jobs:
       with:
         version: '>=363.0.0'
     - name: 'command'
-      run: 'gcloud auth list'
+      run: |
+        gcloud auth list
+        gcloud compute instances list
