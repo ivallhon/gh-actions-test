@@ -42,4 +42,4 @@ jobs:
       with:
         version: '>=363.0.0'
     - name: 'command'
-      run: 'gcloud info'
+      run: 'gcloud auth list'
