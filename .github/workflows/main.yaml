@@ -28,6 +28,7 @@ jobs:
         aws sts get-caller-identity
   
   GoogleAuth:
+    runs-on: ubuntu-latest
     steps:
     - uses: 'actions/checkout@v3'
     - id: 'auth'
@@ -36,3 +37,9 @@ jobs:
       with:
         workload_identity_provider: 'principalSet://iam.googleapis.com/projects/299668006770/locations/global/workloadIdentityPools/github-actions'
         service_account: 'gha-sa@tranquil-racer-388319.iam.gserviceaccount.com'
+    - name: 'setup CloudSDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
+      with:
+        version: '>=363.0.0'
+    - name: 'command'
+      run: 'gloud info'
