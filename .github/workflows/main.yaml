@@ -20,7 +20,7 @@ jobs:
     - name: configure aws creds
       uses: aws-actions/configure-aws-credentials@v2.1.0
       with: 
-        role-to-assume: arn:aws:iam::512220559759:role/test-gh-actions-isaac
+        role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
         role-session-name: test-gh-workflow
         aws-region: ${{ env.AWS_REGION }}
     - name: GetCallerId
@@ -35,8 +35,8 @@ jobs:
       name: 'Authenticate to GCP'
       uses: 'google-github-actions/auth@v1'
       with:
-        workload_identity_provider: 'projects/299668006770/locations/global/workloadIdentityPools/github-actions/providers/github-actions'
-        service_account: 'gha-sa@tranquil-racer-388319.iam.gserviceaccount.com'
+        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_POOL }}
+        service_account: ${{ secrets.GCP_WORKLOAD_IDENTITY_POOL }}
     - name: 'setup CloudSDK'
       uses: 'google-github-actions/setup-gcloud@v1'
       with:
