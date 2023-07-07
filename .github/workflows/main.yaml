@@ -36,7 +36,7 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_POOL }}
-        service_account: ${{ secrets.GCP_WORKLOAD_IDENTITY_POOL }}
+        service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
     - name: 'setup CloudSDK'
       uses: 'google-github-actions/setup-gcloud@v1'
       with:
